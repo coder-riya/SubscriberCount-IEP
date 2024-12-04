@@ -22,8 +22,8 @@ The interface features a modern, Netflix-like theme with a dark background, red 
 **How to Run the Project**  
 1. **Clone the Repository**:  
    ```bash
-   git clone <>
-   cd <repository_name>
+   git clone https://github.com/coder-riya/SubscriberCount-IEP
+   cd SubscriberCount-IEP
    ```
 
 2. **Install Dependencies**:  
