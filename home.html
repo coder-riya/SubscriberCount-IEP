@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+            font-family: 'Arial', sans-serif; /* Netflix-inspired font */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(20, 20, 20, 0.9); /* Slightly lighter black */
+            padding: 30px;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8); /* Shadow effect */
+            text-align: center;
+            width: 400px; /* Adjust width as needed */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #e50914; /* Netflix red */
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #ff0a16; /* Slightly lighter red */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome!</h1>
+        <p>
+            This project helps track subscriber memberships across various tiers (Basic, VIP, Premium) 
+            and provides insights into unique and overlapping subscriptions. Use the options below to explore results or add new subscribers.
+        </p>
+        <a href="{% url 'subscriptions:calculate_unique_subscriptions' %}" class="btn">View Results</a>
+        <a href="{% url 'subscriptions:subscriber_form' %}" class="btn">Add Subscriber</a>
+    </div>
+</body>
+</html>

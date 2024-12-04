@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Subscriber</title>
+    <style>
+        body {
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+            font-family: 'Arial', sans-serif; /* Clean Netflix-style font */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(20, 20, 20, 0.9); /* Lighter black for contrast */
+            padding: 30px;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8); /* Soft shadow effect */
+            text-align: center;
+            width: 300px; /* Fixed width */
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #e50914; /* Netflix red */
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #ff0a16; /* Slightly lighter red */
+        }
+
+        .message {
+            margin-bottom: 20px;
+        }
+
+        .message p {
+            color: #e50914; /* Netflix red for messages */
+            font-weight: bold;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #e50914; /* Netflix red */
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #ff0a16; /* Slightly lighter red on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Subscriber</h1>
+
+        <!-- Display Django messages -->
+        {% if messages %}
+            <div class="message">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <!-- Form for adding a new subscriber -->
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- Link to view results -->
+        <a href="{% url 'subscriptions:calculate_unique_subscriptions' %}">View Subscription Results</a>
+    </div>
+</body>
+</html>
